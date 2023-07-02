@@ -3,10 +3,11 @@ import StealthPlugin from 'puppeteer-extra-plugin-stealth';
 import fs from 'fs';
 
 puppeteer.use(StealthPlugin());
+const inputDirectory ='./data/scraped_chapters.json';
 
 (async () => {
   // Read the JSON file
-  const jsonData = fs.readFileSync('./data/scraped_chapters.json');
+  const jsonData = fs.readFileSync(`${inputDirectory}`);
   const data = JSON.parse(jsonData); // Keep only the first item
 
   // Launch browser and open a new page
